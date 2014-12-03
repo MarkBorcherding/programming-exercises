@@ -12,16 +12,10 @@ def match_it(s)
   closings.empty?
 end
 
-['',
- '[]',
- '[][]',
- '[()<>]'].each do |s|
-   puts "true => #{match_it s}"
- end
+POSITIVE_EXAMPLES.each do |s|
+  puts "true => #{match_it s}"
+end
 
-[']',
- '[',
- '[][]]',
- '[()<]'].each do |s|
-   puts "false => #{match_it s}"
- end
+NEGATIVE_EXAMPLES.each do |s|
+  puts "false => #{match_it s}"
+end
