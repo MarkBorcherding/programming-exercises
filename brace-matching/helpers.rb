@@ -10,5 +10,5 @@ def closing(c)
 end
 
 def start?(c)
-  !!closing(c)
+  !closing(c).nil?
 end
