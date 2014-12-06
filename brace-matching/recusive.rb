@@ -2,11 +2,11 @@ require_relative 'helpers'
 
 def match_it(s, matches = [])
   return matches.empty?  if s.empty?
-  if start? s[0]
-    matches << closing(s.shift)
-    return match_it s, matches
+  head = s.shift
+  if start? head
+    match_it s, matches << closing(head)
   else
-    return (s.shift == matches.pop) && match_it(s, matches)
+    (head == matches.pop) && match_it(s, matches)
   end
 end
 
