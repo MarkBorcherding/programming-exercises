@@ -8,7 +8,7 @@ Write a program that returns a `boolean` telling if a string contains all matchi
 * There will be no bad characters
 * There are the following helper methods
   * `start?(c)` returning `true` if a character is one of `([{<`
-  * `closing(c)` returning `true` if a charcter is the matching closing brace
+  * `closing(c)` returning `)]}>` respective to the parameter passed
 
 ## Expected Results
 
