@@ -9,7 +9,7 @@ class Markov
 
   def train(words)
     words.each_cons(2) do |pair|
-      if pair[0].end_with? '.' or pair[0].end_with? '?'
+      if pair[0] =~ /[\.\?!]$/
         transition pair[0], :end
         transition :start, pair[1]
       else

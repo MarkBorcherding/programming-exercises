@@ -6,6 +6,7 @@ markov = Markov.new
 
 ARGV.each do |f|
   markov.train File.read(f)
+    .downcase
     .split("\n")
     .reject { |l| l =~ /^[A-Z \W]*$/ }
     .reject { |l| l =~ /^\(.*\)$/ }
