@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require_relative 'markov'
+
+markov = Markov.new
+
+ARGV.each do |f|
+  markov.train File.read(f)
+    .split("\n")
+    .reject { |l| l =~ /^[A-Z \W]*$/ }
+    .reject { |l| l =~ /^\(.*\)$/ }
+    .join(' ')
+    .gsub(/[-\(\)]/, '')
+    .split(' ')
+end
+
+puts markov.generate
