@@ -9,7 +9,7 @@ class Markov
 
   def train(words)
     words.each_cons(2) do |pair|
-      if pair[0].end_with? '.'
+      if pair[0].end_with? '.' or pair[0].end_with? '?'
         transition pair[0], :end
         transition :start, pair[1]
       else
@@ -27,8 +27,22 @@ class Markov
   end
 
   def generate
-    start = map[:start].keys.sample
-    s = map[start]
+    words = []
+    next_word =  map[:start].keys.sample
+    while next_word != :end do
+      words << next_word
+      next_word =next_word(words.last)
+    end
+    words.join " "
+  end
 
+  def next_word(w)
+    choices = map[w]
+    count = choices[:count].to_f
+    choices.reject{ |c| c == :count }.reduce(rand) do |left,v|
+      left = left - (v[1]/count)
+      return v[0] if left < 0
+      left
+    end
   end
 end
