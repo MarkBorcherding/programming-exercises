@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+def fail_usage
+  puts "Usage: factorial <n>"
+  exit 1
+end
+
+begin
+  n = Integer(ARGV[0])
+rescue
+  fail_usage
+end
+
+puts (1..n).inject(1, &:*)
