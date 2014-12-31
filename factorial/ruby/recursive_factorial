@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+def fail_usage
+  puts "Usage: factorial <n>"
+  exit 1
+end
+
+begin
+  n = Integer(ARGV[0])
+rescue
+  fail_usage
+end
+
+def factorial(n)
+  return 1 if n == 0
+  n * factorial(n-1)
+end
+
+puts factorial(n)
