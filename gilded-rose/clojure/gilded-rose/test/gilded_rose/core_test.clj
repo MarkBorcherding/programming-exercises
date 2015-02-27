@@ -1,6 +1,6 @@
-(ns guilded-rose.core-test
+(ns gilded-rose.core-test
   (:require [clojure.test :refer :all]
-            [guilded-rose.core :refer :all]))
+            [gilded-rose.core :refer :all]))
 
 (deftest a-test
   (testing "update quality"

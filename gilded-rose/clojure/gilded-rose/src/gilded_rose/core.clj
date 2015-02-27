@@ -1,4 +1,4 @@
-(ns guilded-rose.core)
+(ns gilded-rose.core)
 
 (defn item [name sell-in quality]
       {:name name

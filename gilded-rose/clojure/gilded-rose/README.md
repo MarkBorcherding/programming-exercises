@@ -1,4 +1,4 @@
-# guilded-rose
+# gilded-rose
 
 A Clojure library designed to ... well, that part is up to you.
 
