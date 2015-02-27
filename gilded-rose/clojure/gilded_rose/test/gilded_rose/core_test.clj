@@ -7,4 +7,9 @@
     (is (= (item :normal 1 3 )
            {:name :normal
             :sell-in 1
-            :quality 3}))))
+            :quality 3})))
+
+  (testing "lower sell in quality"
+    (is (= (lower-sell-in (item :normal 2 3))
+           (item :normal 1 3)))))
+
