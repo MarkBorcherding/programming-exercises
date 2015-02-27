@@ -11,7 +11,7 @@
   "Lower the sell in count nightly."
   [itm]
   (item (:name itm)
-        (- (:sell-in itm) 1)
+        (dec (:sell-in itm))
         (:quality itm)))
 
 (defn update-quality
@@ -21,7 +21,7 @@
     (item (:name itm)
           (:sell-in itm)
           (- (:quality itm)
-             (if (< 0 (:sell-in itm))
+             (if (pos? (:sell-in itm))
                1
                2)))))
 
