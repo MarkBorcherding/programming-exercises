@@ -13,3 +13,13 @@
     (is (= (lower-sell-in (item :normal 2 3))
            (item :normal 1 3)))))
 
+(deftest normal-items
+  (testing "Update non-expired items"
+    (is (= (update-quality (item :normal 2 3))
+           (item :normal 1 2))))
+
+  (testing "Update expired items"
+    (is (= (update-quality (item :normal 0 3))
+           (item :normal -1 1))))
+  )
+
