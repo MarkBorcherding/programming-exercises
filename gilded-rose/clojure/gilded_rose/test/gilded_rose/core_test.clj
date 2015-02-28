@@ -20,4 +20,8 @@
 
   (testing "Update expired items"
     (is (= (update-quality (item :normal-item 0 3))
-           (item :normal-item -1 1)))))
+           (item :normal-item -1 1))))
+
+  (testing "Stop quality from going below zero"
+    (is (= (update-quality (item :normal-item 1 0))
+           (item :normal-item 0 0 )))))
