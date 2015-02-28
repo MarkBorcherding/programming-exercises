@@ -14,16 +14,12 @@
         (dec (:sell-in itm))
         (:quality itm)))
 
-(defn update-quality
-  "Update the quality of an item"
+(defmulti update-quality (fn [x] (:name x)))
+
+(defmethod update-quality :normal-item
   [itm]
   (let [itm (lower-sell-in itm)]
     (item (:name itm)
           (:sell-in itm)
           (- (:quality itm)
-             (if (pos? (:sell-in itm))
-               1
-               2)))))
-
-
-
+             (if (pos? (:sell-in itm)) 1 2)))))

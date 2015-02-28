@@ -4,22 +4,20 @@
 
 (deftest item-tests
   (testing "Creating an item"
-    (is (= (item :normal 1 3 )
-           {:name :normal
+    (is (= (item :normal-item 1 3 )
+           {:name :normal-item
             :sell-in 1
             :quality 3})))
 
   (testing "lower sell in quality"
-    (is (= (lower-sell-in (item :normal 2 3))
-           (item :normal 1 3)))))
+    (is (= (lower-sell-in (item :normal-item 2 3))
+           (item :normal-item 1 3)))))
 
 (deftest normal-items
   (testing "Update non-expired items"
-    (is (= (update-quality (item :normal 2 3))
-           (item :normal 1 2))))
+    (is (= (update-quality (item :normal-item 2 3))
+           (item :normal-item 1 2))))
 
   (testing "Update expired items"
-    (is (= (update-quality (item :normal 0 3))
-           (item :normal -1 1))))
-  )
-
+    (is (= (update-quality (item :normal-item 0 3))
+           (item :normal-item -1 1)))))
