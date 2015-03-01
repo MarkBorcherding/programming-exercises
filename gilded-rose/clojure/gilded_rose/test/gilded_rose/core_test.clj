@@ -25,3 +25,8 @@
   (testing "Stop quality from going below zero"
     (is (= (update-quality (item :normal-item 1 0))
            (item :normal-item 0 0 )))))
+
+(deftest aged-brie
+  (testing "Quality goes up as it gets older"
+    (is (= (update-quality (item :aged-brie 2 3))
+           (item :aged-brie 1 4)))))

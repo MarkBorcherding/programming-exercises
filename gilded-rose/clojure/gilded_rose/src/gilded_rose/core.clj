@@ -23,3 +23,11 @@
           (:sell-in itm)
           (- (:quality itm)
              (if (pos? (:sell-in itm)) 1 2)))))
+
+(defmethod update-quality :aged-brie
+  [itm]
+  (let [itm (lower-sell-in itm)]
+    (item (:name itm)
+          (:sell-in itm)
+          (+ (:quality itm)
+             (if (pos? (:sell-in itm)) 1 2)))))
