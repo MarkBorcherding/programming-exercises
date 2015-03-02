@@ -5,7 +5,7 @@
   [name sell-in quality]
   {:name name
    :sell-in sell-in
-   :quality (max quality 0)})
+   :quality (max (min quality 50) 0)})
 
 (defn lower-sell-in
   "Lower the sell in count nightly."

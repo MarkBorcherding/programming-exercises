@@ -29,4 +29,8 @@
 (deftest aged-brie
   (testing "Quality goes up as it gets older"
     (is (= (update-quality (item :aged-brie 2 3))
-           (item :aged-brie 1 4)))))
+           (item :aged-brie 1 4))))
+
+  (testing "Quality cannot go above 50"
+    (is (= (update-quality (item :aged-brie 2 50))
+           (item :aged-brie 1 50)))))
