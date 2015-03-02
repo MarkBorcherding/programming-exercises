@@ -31,6 +31,10 @@
     (is (= (update-quality (item :aged-brie 2 3))
            (item :aged-brie 1 4))))
 
+  (testing "Quality goes up twice as fast after sell in"
+    (is (= (update-quality (item :aged-brie 0 3))
+           (item :aged-brie -1 5))))
+
   (testing "Quality cannot go above 50"
     (is (= (update-quality (item :aged-brie 2 50))
            (item :aged-brie 1 50)))))
