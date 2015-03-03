@@ -16,6 +16,8 @@
 
 (defmulti update-quality (fn [x] (:name x)))
 
+(defmethod update-quality :sulfuras [itm] itm)
+
 (defmethod update-quality :normal-item
   [itm]
   (let [itm (lower-sell-in itm)]

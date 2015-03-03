@@ -26,6 +26,11 @@
     (is (= (update-quality (item :normal-item 1 0))
            (item :normal-item 0 0 )))))
 
+(deftest sulfuras
+  (testing "Sulfuras never reduces the sell in date"
+    (is (= (update-quality (item :sulfuras 1 1))
+           (item :sulfuras 1 1)))))
+
 (deftest aged-brie
   (testing "Quality goes up as it gets older"
     (is (= (update-quality (item :aged-brie 2 3))
