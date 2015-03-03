@@ -18,6 +18,14 @@
 
 (defmethod update-quality :sulfuras [itm] itm)
 
+(defmethod update-quality :backstage-pass [itm]
+  (let [itm (lower-sell-in itm)]
+    (item (:name itm)
+          (:sell-in itm)
+          (+ (:quality itm) (cond
+                              (> (:sell-in itm) 10) 1
+                              :else 0)))))
+
 (defmethod update-quality :normal-item
   [itm]
   (let [itm (lower-sell-in itm)]

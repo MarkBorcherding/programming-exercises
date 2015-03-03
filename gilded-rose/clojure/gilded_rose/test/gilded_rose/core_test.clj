@@ -31,6 +31,11 @@
     (is (= (update-quality (item :sulfuras 1 1))
            (item :sulfuras 1 1)))))
 
+(deftest backstage-pass
+  (testing "quality increases by two more than 10 days out"
+    (is (= (update-quality (item :backstage-pass 13 1))
+           (item :backstage-pass 12 2)))))
+
 (deftest aged-brie
   (testing "Quality goes up as it gets older"
     (is (= (update-quality (item :aged-brie 2 3))
