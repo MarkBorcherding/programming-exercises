@@ -29,7 +29,7 @@
              (< 0 (:sell-in itm)) (+ 3 q)
              :else 0))))
 
-(defmethod update-quality :normal-item
+(defmethod update-quality :default
   [itm]
   (let [itm (lower-sell-in itm)]
     (item (:name itm)
